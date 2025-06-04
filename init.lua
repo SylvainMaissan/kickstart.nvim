@@ -76,7 +76,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
-local detail = false
 
 -- Install plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -534,28 +533,6 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  },
-  {
-    'stevearc/oil.nvim',
-    opts = {
-      keymaps = {
-        ['gd'] = {
-          desc = 'Toggle file detail view',
-          callback = function()
-            detail = not detail
-            if detail then
-              require('oil').set_columns { 'icon', 'permissions', 'size', 'mtime' }
-            else
-              require('oil').set_columns { 'icon' }
-            end
-          end,
-        },
-      },
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 
   -- {
