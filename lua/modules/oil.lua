@@ -22,6 +22,8 @@ return {
       },
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { '-', '<cmd>Oil<cr>', desc = 'Open parent directory' },
+    },
   },
 }
-
