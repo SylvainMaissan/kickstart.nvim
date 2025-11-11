@@ -107,16 +107,16 @@ return {
       }
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = {
-        pyright = {},
-        ty = {},
-        ruff = {},
+        basedpyright = {},
         rust_analyzer = {},
+        bashls = {},
         dockerls = {},
         gitlab_ci_ls = {},
         terraformls = {},
         tflint = {},
         jsonls = {},
         yamlls = {},
+        yamlfmt = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -131,6 +131,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'yamlfmt', -- Used to format YAML files
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
