@@ -16,18 +16,19 @@ return {
       },
     },
     keys = {
-      { '<leader>sf', '<cmd>FzfLua files<cr>', desc = '[S]earch Files' },
+      { '<leader>f', '<cmd>FzfLua files<cr>', desc = '[S]earch Files' },
       { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = '[S]earch Grep' },
       { '<leader><leader>', '<cmd>FzfLua buffers<cr>', desc = 'Buffers' },
       { '<leader>sh', '<cmd>FzfLua help_tags<cr>', desc = '[S]earch Help' },
       { '<leader>s.', '<cmd>FzfLua oldfiles<cr>', desc = '[S]earch Recent' },
+      { '<leader>d', '<cmd>FzfLua diagnostics_workspace<cr>', desc = '[D]iagnostics' },
       {
         '<leader>sn',
         function()
           require('fzf-lua').files {
             cwd = vim.fn.stdpath 'config',
             prompt = 'Neovim❯ ',
-            hidden = false,
+            hidden = true,
           }
         end,
         desc = '[S]earch Neovim Config',
